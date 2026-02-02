@@ -114,6 +114,8 @@
 
 //< ---------UNIT-2--------->
 
+// <<--timer functions--->
+
 // window.alert(`are you sure you enter in your dream place that is my heart`);
 // let heart=window.prompt("say something");
 // console.log("Do you love me?");
@@ -148,8 +150,78 @@
 // },1000);
 
 
-console.log("Do you love me?");
-setTimeout(()=>{
-    console.log("i konw you choose yes")
-},0);
-console.log("YeS/no");
+// console.log("Do you love me?");
+// setTimeout(()=>{
+//     console.log("i konw you choose yes")
+// },0);
+// console.log("YeS/no");
+
+// <---callback func.--->
+// 1.
+//  function print(num){
+//     console.log("Hello bachooo");
+//      num()
+// }
+// function greet(){
+//     console.log("Welcome to my class");   
+// }
+
+// print(greet)
+
+// 2.
+// function print(name){
+//     console.log(`hello students`,name);
+// }
+// function greet(num){
+//     console.log(`Welcome to my class`);
+//     setTimeout(()=>{
+//         console.log("inside settimeout");
+//         let firstName="alexa"
+//         num(firstName)
+//     },2000);
+// }
+// greet(print)
+
+// 3.
+// console.log(`sarting homework`);
+
+// setTimeout(()=>{
+//     console.log(`homework done`);
+//     console.log(`getting ready to go out`);
+
+//     setTimeout(()=>{
+//         console.log(`dinner done`);
+//         console.log(`getting ready to go out`)
+        
+//         setTimeout(()=>{
+//             console.log(`going to playground`);
+//         },1000); //after dinner
+//     },1500); //dinner time
+// },2000); //homework time
+
+// 4.
+function finishHomework(callback){
+    console.log("starting homework...");
+    setTimeout(()=>{
+        console.log("homework done!");
+        callback();
+
+    },2000);
+}
+
+function eatDinner(callback){
+    console.log("starting dinner...");
+    setTimeout(()=>{
+        console.log("dinner done!");
+        callback();
+    },1500);
+}
+function goToPlayground(){
+    console.log("going to the playground!");
+}
+
+finishHomework(()=>{
+    eatDinner(()=>{
+        goToPlayground();
+    });
+});
