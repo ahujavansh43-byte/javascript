@@ -200,28 +200,57 @@
 // },2000); //homework time
 
 // 4.
-function finishHomework(callback){
-    console.log("starting homework...");
-    setTimeout(()=>{
-        console.log("homework done!");
-        callback();
+// function finishHomework(callback){
+//     console.log("starting homework...");
+//     setTimeout(()=>{
+//         console.log("homework done!");
+//         callback();
 
-    },2000);
-}
+//     },2000);
+// }
 
-function eatDinner(callback){
-    console.log("starting dinner...");
-    setTimeout(()=>{
-        console.log("dinner done!");
-        callback();
-    },1500);
-}
-function goToPlayground(){
-    console.log("going to the playground!");
-}
+// function eatDinner(callback){
+//     console.log("starting dinner...");
+//     setTimeout(()=>{
+//         console.log("dinner done!");
+//         callback();
+//     },1500);
+// }
+// function goToPlayground(){
+//     console.log("going to the playground!");
+// }
 
-finishHomework(()=>{
-    eatDinner(()=>{
-        goToPlayground();
-    });
-});
+// finishHomework(()=>{
+//     eatDinner(()=>{
+//         goToPlayground();
+//     });
+// });
+
+// <<---TO DO LIST
+
+const input=document.querySelector("#task")
+const btn=document.querySelector(".btn")
+const list=document.querySelector(".list")
+
+btn.addEventListener('click',(e)=>{
+    e.preventDefault()
+    if(input.value===""){
+        alert("enter task")
+        return
+    }
+    const li=document.createElement('li')
+    const deleteButton=document.createElement('button')
+
+    deleteButton.innerText="Delete"
+
+    li.innerText=input.value 
+    li.appendChild(deleteButton)
+    list.appendChild(li)
+
+    deleteButton.addEventListener('click',()=>{
+        list.removeChild(li)
+    })
+    input.value=""
+})
+
+
