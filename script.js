@@ -336,7 +336,120 @@
 //     console.log("all tasks are done")
 // })
 
-// 3.
+// <<-EVENT LOOP---> code execution takes place in an order Console.log->promise(priority que)->settimeout(macrotask)
+// inside promise is executed before inside timeout because promises are microtasks and timeouts are macrotasks, and microtasks are executed before macrotasks in the event loop.
+
+// console.log("First line")
+
+// setTimeout(() => {
+//     console.log("Inside timeout");
+// }, 0);
+
+// const promise1 = new Promise((resolve, reject) => {
+//     resolve();
+// });
+
+// promise1.then(() => {
+//     console.log("Inside promise1");
+// }).catch(() => {
+//     console.log("Inside catch");
+// });
+
+// const promise2 = new Promise((resolve, reject) => {
+//     resolve();
+// });
+
+// promise2.then(() => {
+//     console.log("Inside promise2");
+// }).catch(() => {
+//     console.log("Inside catch");
+// });
+
+// const promise3 = new Promise((resolve, reject) => {
+//     resolve();
+// });
+
+// promise3.then(() => {
+//     console.log("Inside promise3");
+// }).catch(() => {
+//     console.log("Inside catch");
+// });
+
+// console.log("Last line")
+
+// <<--ASYNC FUNCTION-> by adding async in function it behave like promise(asynchronus)
+function orderfood(){
+    return new Promise(function(resolve,reject){
+        setTimeout(() => {
+            console.log("food order")
+            resolve ("food ordered")   
+        }, 1000);
+    })
+}
+function foodprepared(){
+    return new Promise(function(resolve,reject){
+        setTimeout(() => {
+            console.log("food prepare")
+            resolve ("food prepared")    
+        }, 1000);
+    })
+}
+
+function fooddeliverd(){
+    return new Promise(function(resolve,reject){
+        setTimeout(() => {
+            console.log("food deliver")
+            resolve ("food deliverd")    
+        }, 1000);
+    })
+}
+// <-- By async await
+
+// async function order() {
+//     const data =await orderfood()
+//     console.log(data)
+//     await foodprepared()
+//     await fooddeliverd()
+    
+// }
+
+// order()
+
+// console.log(order())
+
+// <-- By promise changing
+
+// orderfood().then((data)=>{
+//     console.log(data)
+//     return foodprepared()
+// }).then((data)=>{
+//     console.log(data)
+//     return fooddeliverd()
+// }).then((data)=>{
+//     console.log(data)
+// }).catch((err)=>{
+//     console.log(err)
+// })
+
+// <<-ERROR HANDLING-->
+
+console.log("first line")
+try{
+    // let sample=345
+    // console.log(sample)
+
+    let age=13
+        if (age<18){
+            throw new Error ("access denied")
+    }
+}catch(err){
+    console.log(err)
+}finally{
+    console.log("finally block")
+}
+
+console.log("last line")
+
 
 
 
