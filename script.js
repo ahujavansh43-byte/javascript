@@ -433,26 +433,127 @@ function fooddeliverd(){
 
 // <<-ERROR HANDLING-->
 
-console.log("first line")
-try{
-    // let sample=345
-    // console.log(sample)
+// console.log("first line")
+// try{
+//     // let sample=345
+//     // console.log(sample)
 
-    let age=13
-        if (age<18){
-            throw new Error ("access denied")
-    }
-}catch(err){
-    console.log(err)
-}finally{
-    console.log("finally block")
+//     let age=13
+//         if (age<18){
+//             throw new Error ("access denied")
+//     }
+// }catch(err){
+//     console.log(err)
+// }finally{
+//     console.log("finally block")
+// }
+
+// console.log("last line")
+
+// <<-FETCH = 
+
+// ...existing code...
+
+// async function fetchData() {
+//     try {
+//         const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+//         console.log("Response received");
+        
+//         if (response.ok === false) {
+//             throw new Error("Network response was not ok");
+//         }
+        
+//         const data = await response.json();
+//         console.log("Data parsed:", data);
+        
+//         // Uncomment if you have an array to loop:
+//         // if (data.products) {
+//         //     data.products.forEach((item) => {
+//         //         console.log(item);
+//         //     });
+//         // }
+        
+//     } catch (error) {
+//         console.error("Data not found:", error.message);
+//     }
+// }
+
+// // Call the function
+// fetchData();
+
+// ...existing code...
+
+// 2.
+
+// async function sendData(){
+//     try{
+//         const response= await fetch("https://dummyjson.com/products/add",{
+//               method: 'Post',
+//               headers: {'Content-Type':'application/json'},
+//               body: JSON.stringify({
+//                 title: "Macbook",
+//                 description: "Macbook Pro",
+//                 price:1000000,
+//                 discountPercentage:5,
+//                 rating:4.5,
+//                 stock:5,
+//                 brand:"Apple",
+//               })
+//         })
+
+//         const data=await response.json()
+//         console.log(data)
+//     }catch(error){
+//         console.log("Data not found")
+//     }
+// }
+
+// sendData(); 
+
+// 3.
+
+// let obj={
+//     title:"Macbook",
+//     description:"Macbook air"
+// }
+
+// localStorage.setItem("obj",JSON.stringify(obj))
+// localStorage.setItem("name","Davender")
+// localStorage.setItem("age",23)
+
+// console.log(localStorage.getItem("name"))
+// console.log(localStorage.getItem("age"))
+// console.log(JSON.parse(localStorage.getItem("obj")))
+
+// localStorage.removeItem("age")
+
+// 4.
+
+// let obj={
+//     title:"Macbook",
+//     description:"Macair"
+// }
+
+// sessionStorage.setItem("obj",JSON.stringify(obj))
+// sessionStorage.setItem("name","Davender")
+// sessionStorage.setItem("age",23)
+
+// console.log(sessionStorage.getItem("name"))
+// console.log(sessionStorage.getItem("age"))
+// console.log(JSON.parse(sessionStorage.getItem("obj")))
+
+// sessionStorage.removeItem("age")
+
+document.cookie="name=Davender lund;expires=Sat 21 Feb 2026 12:00:00 UTC"
+document.cookie="age=23; expires=Sat 21 Feb 2026 12:00:00 UTC "
+
+console.log(document.cookie)
+
+async function sample(){
+    await fetch("http://127.0.0.1:5500/")
 }
 
-console.log("last line")
-
-
-
-
+sample();
 
 
 
